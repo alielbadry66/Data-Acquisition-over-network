@@ -7,7 +7,7 @@ void uart_init(unsigned int baudrate) {
     UBRR0L = (unsigned char)ubrr;
     
     // Enable receiver and transmitter
-    UCSR0B = (1 << RXEN0) | (1 << TXEN0);
+    UCSR0B = UCSR0B | (1 << RXEN0) | (1 << TXEN0);
     
     // Set frame format: 8 data bits, 1 stop bit, no parity
     UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
