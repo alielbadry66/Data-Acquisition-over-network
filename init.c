@@ -1,5 +1,6 @@
 #include <avr/io.h>
 #include "uart.h"
+
 void uart_init(unsigned int baudrate) {
     // Set baud rate
     unsigned int ubrr = F_CPU / 16 / baudrate - 1;
