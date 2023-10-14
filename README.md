@@ -8,6 +8,6 @@ The program begins by initializing the UART (Universal Asynchronous Receiver-Tra
 
 Inside the main loop, the code continuously monitors the status of the switch connected to PB0. If the switch is pressed, it sends a corresponding message through UART indicating that the button is pressed; otherwise, it indicates that the button is not pressed.
 
-The code also checks for incoming UART commands. If a character is available for reception, it checks if the received character is 'l' or 'L'. If it is, the code sends a message via UART indicating that the LED is turned on and sets PB5 high, illuminating the LED. If the received character is 'o' or 'O', it sends a message indicating that the LED is turned off and clears PB5, turning off the LED.
+The code also checks for incoming UART commands. If characters are available for reception, it checks if the received string is 'turn on led'. If it is, the code sends a message via UART indicating that the LED is turned on and sets PB5 high, illuminating the LED. If the received string is 'turn off led', it sends a message indicating that the LED is turned off and clears PB5, turning off the LED.
 
 Overall, this code demonstrates the integration of UART communication with hardware control on an AVR microcontroller, making it suitable for various applications where remote control or monitoring via UART is required, with real-time feedback on the status of a button and LED control.
