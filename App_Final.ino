@@ -1,17 +1,15 @@
-#include <avr/io.h>
+#include <avr/io.h> // Include the IO defintions
 #include "uart.h"   // Include the UART communication library
 #include "init.c"   // Include initialization code for AVR microcontroller
 #include <string.h> // Include string.h for strncmp function
+#include "dio.c"    // Include the pins fuction
+#include "dio.h"    // Include the pins library
 
 int main() {
     // Initialize UART with a baud rate of 9600
     uart_init(9600);
-
-    // Set the switch pin as input with an internal pull-up resistor
-    DDRB &= ~(1 << PB0);     // Set PB0 as input (Switch)
-    PORTB |= (1 << PB0);     // Enable internal pull-up resistor on PB0
-
-    DDRB |= (1 << PB5);      // Set PB5 as output (LED)
+    // set the pins of the switch and LED
+    set_pins();
 
     char command[16];        // Array to store received command
     uint8_t index = 0;       // Index for tracking characters in the command
